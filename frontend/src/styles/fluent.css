@@ -1,0 +1,132 @@
+/* Fluent Design System - Global Styles */
+
+:root {
+  /* 主题色 */
+  --fluent-primary: #0078d4;
+  --fluent-primary-dark: #006cbd;
+  --fluent-primary-darker: #005a9e;
+  --fluent-primary-light: #00bcf2;
+  
+  /* 中性色 */
+  --fluent-gray-10: #faf9f8;
+  --fluent-gray-20: #f3f2f1;
+  --fluent-gray-30: #edebe9;
+  --fluent-gray-40: #e1dfdd;
+  --fluent-gray-50: #d2d0ce;
+  --fluent-gray-60: #c8c6c4;
+  --fluent-gray-90: #a19f9d;
+  --fluent-gray-130: #605e5c;
+  --fluent-gray-150: #3b3a39;
+  --fluent-gray-190: #201f1e;
+  
+  /* 语义色 */
+  --fluent-success: #107c10;
+  --fluent-warning: #ffb900;
+  --fluent-error: #d13438;
+  --fluent-info: #0078d4;
+  
+  /* 阴影 */
+  --fluent-shadow-4: 0 1.6px 3.6px 0 rgba(0,0,0,0.132), 0 0.3px 0.9px 0 rgba(0,0,0,0.108);
+  --fluent-shadow-8: 0 3.2px 7.2px 0 rgba(0,0,0,0.132), 0 0.6px 1.8px 0 rgba(0,0,0,0.108);
+  --fluent-shadow-16: 0 6.4px 14.4px 0 rgba(0,0,0,0.132), 0 1.2px 3.6px 0 rgba(0,0,0,0.108);
+  --fluent-shadow-64: 0 25.6px 57.6px 0 rgba(0,0,0,0.22), 0 4.8px 14.4px 0 rgba(0,0,0,0.18);
+  
+  /* 圆角 */
+  --fluent-radius-sm: 4px;
+  --fluent-radius-md: 8px;
+  --fluent-radius-lg: 12px;
+  
+  /* 过渡 */
+  --fluent-transition: 0.2s ease;
+}
+
+/* 全局字体 */
+body {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Fluent 卡片 */
+.fluent-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--fluent-radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: var(--fluent-shadow-8);
+  transition: transform var(--fluent-transition), box-shadow var(--fluent-transition);
+}
+
+.fluent-card:hover {
+  box-shadow: var(--fluent-shadow-16);
+}
+
+/* Fluent 按钮覆盖 */
+.el-button--primary {
+  background: linear-gradient(135deg, var(--fluent-primary) 0%, var(--fluent-primary-dark) 100%) !important;
+  border: none !important;
+  border-radius: var(--fluent-radius-md) !important;
+}
+
+.el-button--primary:hover {
+  background: linear-gradient(135deg, var(--fluent-primary-dark) 0%, var(--fluent-primary-darker) 100%) !important;
+}
+
+/* Fluent 输入框覆盖 */
+.el-input__wrapper {
+  border-radius: var(--fluent-radius-md) !important;
+  box-shadow: none !important;
+  border: 1px solid var(--fluent-gray-50) !important;
+  transition: all var(--fluent-transition) !important;
+}
+
+.el-input__wrapper:hover {
+  border-color: var(--fluent-primary) !important;
+}
+
+.el-input__wrapper.is-focus {
+  border-color: var(--fluent-primary) !important;
+  box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.15) !important;
+}
+
+/* Fluent 表格覆盖 */
+.el-table {
+  border-radius: var(--fluent-radius-lg) !important;
+  overflow: hidden;
+}
+
+.el-table th.el-table__cell {
+  background: var(--fluent-gray-20) !important;
+  font-weight: 600 !important;
+}
+
+.el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
+  background: var(--fluent-gray-10) !important;
+}
+
+/* Fluent 标签覆盖 */
+.el-tag {
+  border-radius: var(--fluent-radius-sm) !important;
+  border: none !important;
+}
+
+/* Fluent 对话框覆盖 */
+.el-dialog {
+  border-radius: var(--fluent-radius-lg) !important;
+  overflow: hidden;
+}
+
+.el-dialog__header {
+  background: var(--fluent-gray-10) !important;
+  border-bottom: 1px solid var(--fluent-gray-30) !important;
+}
+
+/* Fluent 分页覆盖 */
+.el-pagination .el-pager li {
+  border-radius: var(--fluent-radius-sm) !important;
+}
+
+.el-pagination .el-pager li.is-active {
+  background: var(--fluent-primary) !important;
+}

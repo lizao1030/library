@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  # MySQL 数据库
+  db:
+    image: mysql:8.0
+    container_name: library_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root123}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-library_db}
+      MYSQL_USER: ${MYSQL_USER:-library}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-library123}
+      TZ: Asia/Shanghai
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./backend/scripts/create_database.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - library_network
+
+  # Flask 后端
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: library_backend
+    restart: always
+    environment:
+      DATABASE_URL: mysql+pymysql://${MYSQL_USER:-library}:${MYSQL_PASSWORD:-library123}@db:3306/${MYSQL_DATABASE:-library_db}
+      SECRET_KEY: ${SECRET_KEY:-docker-secret-key-change-in-production}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:-docker-jwt-secret-change-in-production}
+      FLASK_ENV: production
+      TZ: Asia/Shanghai
+      DB_USER: ${MYSQL_USER:-library}
+      DB_PASSWORD: ${MYSQL_PASSWORD:-library123}
+      DB_NAME: ${MYSQL_DATABASE:-library_db}
+    ports:
+      - "5000:5000"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - library_network
+
+  # Vue 前端
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: library_frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - library_network
+
+volumes:
+  mysql_data:
+
+networks:
+  library_network:
+    driver: bridge

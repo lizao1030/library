@@ -1,0 +1,328 @@
+/* Material Design 3 - Global Styles */
+
+:root {
+  /* Primary */
+  --md-primary: #6750A4;
+  --md-on-primary: #FFFFFF;
+  --md-primary-container: #EADDFF;
+  --md-on-primary-container: #21005D;
+  
+  /* Secondary */
+  --md-secondary: #625B71;
+  --md-on-secondary: #FFFFFF;
+  --md-secondary-container: #E8DEF8;
+  --md-on-secondary-container: #1D192B;
+  
+  /* Tertiary */
+  --md-tertiary: #7D5260;
+  --md-on-tertiary: #FFFFFF;
+  --md-tertiary-container: #FFD8E4;
+  --md-on-tertiary-container: #31111D;
+  
+  /* Error */
+  --md-error: #B3261E;
+  --md-on-error: #FFFFFF;
+  --md-error-container: #F9DEDC;
+  --md-on-error-container: #410E0B;
+  
+  /* Surface */
+  --md-surface: #FFFBFE;
+  --md-surface-dim: #DED8E1;
+  --md-surface-bright: #FFFBFE;
+  --md-surface-container-lowest: #FFFFFF;
+  --md-surface-container-low: #F7F2FA;
+  --md-surface-container: #F3EDF7;
+  --md-surface-container-high: #ECE6F0;
+  --md-surface-container-highest: #E6E0E9;
+  
+  /* On Surface */
+  --md-on-surface: #1C1B1F;
+  --md-on-surface-variant: #49454F;
+  --md-outline: #79747E;
+  --md-outline-variant: #CAC4D0;
+  
+  /* Success (custom) */
+  --md-success: #386A20;
+  --md-success-container: #B8F397;
+  
+  /* Warning (custom) */
+  --md-warning: #7D5700;
+  --md-warning-container: #FFDEA6;
+  
+  /* Elevation */
+  --md-elevation-1: 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15);
+  --md-elevation-2: 0 1px 2px rgba(0,0,0,0.3), 0 2px 6px 2px rgba(0,0,0,0.15);
+  --md-elevation-3: 0 4px 8px 3px rgba(0,0,0,0.15), 0 1px 3px rgba(0,0,0,0.3);
+  
+  /* Shape */
+  --md-shape-xs: 4px;
+  --md-shape-sm: 8px;
+  --md-shape-md: 12px;
+  --md-shape-lg: 16px;
+  --md-shape-xl: 28px;
+  --md-shape-full: 9999px;
+  
+  /* Motion */
+  --md-motion-duration-short: 150ms;
+  --md-motion-duration-medium: 250ms;
+  --md-motion-duration-long: 400ms;
+  --md-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --md-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Typography - Google Sans / Roboto */
+body {
+  font-family: 'Google Sans', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--md-surface);
+  color: var(--md-on-surface);
+}
+
+/* MD3 Filled Button */
+.md-filled-button {
+  height: 40px;
+  padding: 0 24px;
+  border-radius: var(--md-shape-full);
+  background: var(--md-primary);
+  color: var(--md-on-primary);
+  border: none;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.1px;
+  cursor: pointer;
+  transition: all var(--md-motion-duration-short) var(--md-motion-easing-standard);
+  box-shadow: none;
+}
+
+.md-filled-button:hover {
+  box-shadow: var(--md-elevation-1);
+}
+
+.md-filled-button:active {
+  transform: scale(0.98);
+}
+
+/* MD3 Outlined Button */
+.md-outlined-button {
+  height: 40px;
+  padding: 0 24px;
+  border-radius: var(--md-shape-full);
+  background: transparent;
+  color: var(--md-primary);
+  border: 1px solid var(--md-outline);
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all var(--md-motion-duration-short) var(--md-motion-easing-standard);
+}
+
+.md-outlined-button:hover {
+  background: rgba(103, 80, 164, 0.08);
+}
+
+/* MD3 Text Button */
+.md-text-button {
+  height: 40px;
+  padding: 0 12px;
+  border-radius: var(--md-shape-full);
+  background: transparent;
+  color: var(--md-primary);
+  border: none;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all var(--md-motion-duration-short) var(--md-motion-easing-standard);
+}
+
+.md-text-button:hover {
+  background: rgba(103, 80, 164, 0.08);
+}
+
+/* MD3 FAB */
+.md-fab {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--md-shape-lg);
+  background: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+  border: none;
+  box-shadow: var(--md-elevation-3);
+  cursor: pointer;
+  transition: all var(--md-motion-duration-medium) var(--md-motion-easing-emphasized);
+}
+
+.md-fab:hover {
+  box-shadow: var(--md-elevation-3);
+  transform: scale(1.02);
+}
+
+/* MD3 Card */
+.md-card {
+  background: var(--md-surface-container-low);
+  border-radius: var(--md-shape-md);
+  padding: 16px;
+  transition: all var(--md-motion-duration-medium) var(--md-motion-easing-standard);
+}
+
+.md-card-elevated {
+  background: var(--md-surface-container-low);
+  border-radius: var(--md-shape-md);
+  box-shadow: var(--md-elevation-1);
+}
+
+.md-card-filled {
+  background: var(--md-surface-container-highest);
+  border-radius: var(--md-shape-md);
+}
+
+.md-card-outlined {
+  background: var(--md-surface);
+  border: 1px solid var(--md-outline-variant);
+  border-radius: var(--md-shape-md);
+}
+
+/* MD3 Chip */
+.md-chip {
+  height: 32px;
+  padding: 0 16px;
+  border-radius: var(--md-shape-sm);
+  background: var(--md-surface-container-low);
+  border: 1px solid var(--md-outline);
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* MD3 Input */
+.md-input {
+  height: 56px;
+  border-radius: var(--md-shape-xs) var(--md-shape-xs) 0 0;
+  background: var(--md-surface-container-highest);
+  border: none;
+  border-bottom: 1px solid var(--md-on-surface-variant);
+  padding: 8px 16px;
+  font-size: 16px;
+  transition: all var(--md-motion-duration-short) var(--md-motion-easing-standard);
+}
+
+.md-input:focus {
+  border-bottom: 2px solid var(--md-primary);
+  outline: none;
+}
+
+/* Element Plus Overrides for MD3 */
+.el-button--primary {
+  background: var(--md-primary) !important;
+  border: none !important;
+  border-radius: var(--md-shape-full) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.1px !important;
+}
+
+.el-button--primary:hover {
+  background: #7965AF !important;
+  box-shadow: var(--md-elevation-1) !important;
+}
+
+.el-button--success {
+  background: var(--md-success) !important;
+  border: none !important;
+  border-radius: var(--md-shape-full) !important;
+}
+
+.el-button--warning {
+  background: var(--md-warning) !important;
+  border: none !important;
+  border-radius: var(--md-shape-full) !important;
+}
+
+.el-button--danger {
+  background: var(--md-error) !important;
+  border: none !important;
+  border-radius: var(--md-shape-full) !important;
+}
+
+.el-button--default {
+  border-radius: var(--md-shape-full) !important;
+  border-color: var(--md-outline) !important;
+}
+
+.el-input__wrapper {
+  border-radius: var(--md-shape-xs) var(--md-shape-xs) 0 0 !important;
+  background: var(--md-surface-container-highest) !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid var(--md-on-surface-variant) !important;
+  padding: 4px 16px !important;
+}
+
+.el-input__wrapper:hover {
+  background: var(--md-surface-container-high) !important;
+}
+
+.el-input__wrapper.is-focus {
+  border-bottom: 2px solid var(--md-primary) !important;
+  box-shadow: none !important;
+}
+
+.el-tag {
+  border-radius: var(--md-shape-sm) !important;
+  border: none !important;
+  font-weight: 500 !important;
+}
+
+.el-tag--success {
+  background: var(--md-success-container) !important;
+  color: var(--md-success) !important;
+}
+
+.el-tag--warning {
+  background: var(--md-warning-container) !important;
+  color: var(--md-warning) !important;
+}
+
+.el-tag--danger {
+  background: var(--md-error-container) !important;
+  color: var(--md-error) !important;
+}
+
+.el-tag--info {
+  background: var(--md-surface-container-highest) !important;
+  color: var(--md-on-surface-variant) !important;
+}
+
+.el-table {
+  border-radius: var(--md-shape-md) !important;
+  overflow: hidden !important;
+  --el-table-border-color: var(--md-outline-variant) !important;
+}
+
+.el-table th.el-table__cell {
+  background: var(--md-surface-container) !important;
+  color: var(--md-on-surface-variant) !important;
+  font-weight: 500 !important;
+}
+
+.el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
+  background: var(--md-surface-container-lowest) !important;
+}
+
+.el-dialog {
+  border-radius: var(--md-shape-xl) !important;
+}
+
+.el-dialog__header {
+  padding: 24px 24px 0 !important;
+}
+
+.el-dialog__body {
+  padding: 24px !important;
+}
+
+.el-pagination .el-pager li {
+  border-radius: var(--md-shape-full) !important;
+}
+
+.el-pagination .el-pager li.is-active {
+  background: var(--md-primary) !important;
+}
